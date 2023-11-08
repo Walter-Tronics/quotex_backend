@@ -21,8 +21,11 @@ app.use(express.static("public"));
 //set port
 const port = 404;
 
+//use remote port if available
+const ports = process.env.PORT || port;
+
 //starting server
-app.listen(process.env.PORT || port, ()=> 
+app.listen(ports, ()=> 
 console.log(`
-Server started on port http://localhost:${port}
+Server started on port http://localhost:${ports}
 `));
