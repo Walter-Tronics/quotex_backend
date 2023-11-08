@@ -13,3 +13,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //Let express recognize public folder for media files and style sheet
 app.use(express.static("public"));
+
+
+
+
+
+//set port
+const port = 404;
+
+//starting server
+app.listen(process.env.PORT || port, ()=> 
+console.log(`
+Server started on port http://localhost:${port}
+`));
