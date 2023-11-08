@@ -11,7 +11,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-//Let express recognize public folder for media files and style sheet
+
+//use static folder
 app.use(express.static("public"));
 
 
