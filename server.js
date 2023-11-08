@@ -17,7 +17,7 @@ app.use(express.static("public"));
 
 
 //Quotes to be sent back
-const block = [
+const quotes = [
     {
         quote: 'To live is the rarest thing in the world; most people exist, that is all.', 
         author: 'Oscar Wilde'
