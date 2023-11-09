@@ -67,9 +67,23 @@ const quotes = [
 
 
 
+//quotes route to get the quotes object
+app.get("/:routes", (req, res) => {
+
+    if (req.params.routes === 'quotes') {
+        //send the status code and quotes array.
+        res.status(200)
+        .json(quotes);
+    } else {
+        res.status(404).send({error: "The route you're looking for doesn't exist"});
+    }
+});
+
+
+
 
 //set port
-const port = 404;
+const port = 4040;
 
 //use remote port if available
 const ports = process.env.PORT || port;
