@@ -73,6 +73,11 @@ const quotes = [
         id: 10,
         quote: 'And, when you want something, all the universe conspires in helping you to achieve it.', 
         author: 'Paulo Coelho'
+    },
+    {
+        id: 11,
+        quote: 'I work 16hours a day and people still calling me Lucky.', 
+        author: 'Elon Musk'
     }
 ];
 
