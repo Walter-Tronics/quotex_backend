@@ -1,5 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors'
+
 
 
 //initialize express
@@ -7,6 +9,56 @@ const app = express();
 
 //set the view engine
 app.set('view engine', 'ejs');
+
+
+// # 👇️ your domain below, e.g. http://localhost:3000
+// Access-Control-Allow-Origin: http://example.com
+
+// Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+
+// Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
+
+
+// Enable cors at the server side. 
+// const cors = require('cors');
+// const corsOption = {
+//     origin: ['http://localhost:3000'],
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+// }
+// app.use(cors(corsOption));
+
+
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://gorgeous-liger-a5c8b5.netlify.app",
+  ];
+  
+  
+    app.use(
+        cors({
+            origin: function (origin, callback) {
+                console.log("Request Origin:", origin);
+        
+                if (!origin) {
+                // Requests with no origin (e.g., same-origin requests) are allowed
+                return callback(null, true);
+                }
+        
+                if (allowedOrigins.indexOf(origin) === -1) {
+                const message ="The CORS policy for this site does not allow access from the specified origin.";
+                return callback(new Error(message), false);
+                }
+        
+                return callback(null, true);
+            },
+            methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Specify the methods you want to allow
+            credentials: true,
+            optionsSuccessStatus: 204, // Handle preflight requests
+        })
+    );
+
 
 
 app.use(bodyParser.urlencoded({extended: true}));
