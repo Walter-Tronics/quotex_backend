@@ -33,6 +33,8 @@ app.set('view engine', 'ejs');
 const allowedOrigins = [
     "http://localhost:5173",
     "https://walt-quotex.netlify.app",
+    "https://walt-quotex.netlify.app/",
+    "walt-quotex.netlify.app",
   ];
   
   
